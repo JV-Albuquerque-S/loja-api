@@ -1,26 +1,27 @@
 import { Injectable } from '@nestjs/common';
-import { CreateProdutosEuropaDto } from './dto/create-produtos-europa.dto';
-import { UpdateProdutosEuropaDto } from './dto/update-produtos-europa.dto';
+import { HttpService } from '@nestjs/axios';
+import { firstValueFrom } from 'rxjs';
+import { ProdutoEuropa } from './dto/produto-europa.dto';
+import { AxiosResponse } from 'axios';
 
 @Injectable()
 export class ProdutosEuropaService {
-  create(createProdutosEuropaDto: CreateProdutosEuropaDto) {
-    return 'This action adds a new produtosEuropa';
+  constructor(private readonly httpService: HttpService) {}
+
+  async findAll(): Promise<ProdutoEuropa[]> {
+    const url =
+      'http://616d6bdb6dacbb001794ca17.mockapi.io/devnology/european_provider';
+    const response: AxiosResponse<ProdutoEuropa[]> = await firstValueFrom(
+      this.httpService.get(url),
+    );
+    return response.data;
   }
 
-  findAll() {
-    return `This action returns all produtosEuropa`;
-  }
-
-  findOne(id: number) {
-    return `This action returns a #${id} produtosEuropa`;
-  }
-
-  update(id: number, updateProdutosEuropaDto: UpdateProdutosEuropaDto) {
-    return `This action updates a #${id} produtosEuropa`;
-  }
-
-  remove(id: number) {
-    return `This action removes a #${id} produtosEuropa`;
+  async findOne(id: string): Promise<ProdutoEuropa> {
+    const url = `http://616d6bdb6dacbb001794ca17.mockapi.io/devnology/european_provider/${id}`;
+    const response: AxiosResponse<ProdutoEuropa> = await firstValueFrom(
+      this.httpService.get(url),
+    );
+    return response.data;
   }
 }
