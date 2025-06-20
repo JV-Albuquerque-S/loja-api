@@ -1,26 +1,27 @@
 import { Injectable } from '@nestjs/common';
-import { CreateProdutosBrasilDto } from './dto/create-produtos-brasil.dto';
-import { UpdateProdutosBrasilDto } from './dto/update-produtos-brasil.dto';
+import { HttpService } from '@nestjs/axios';
+import { firstValueFrom } from 'rxjs';
+import { ProdutoBrasil } from './dto/produto-brasil.dto';
+import { AxiosResponse } from 'axios';
 
 @Injectable()
 export class ProdutosBrasilService {
-  create(createProdutosBrasilDto: CreateProdutosBrasilDto) {
-    return 'This action adds a new produtosBrasil';
+  constructor(private readonly httpService: HttpService) {}
+
+  async findAll(): Promise<ProdutoBrasil[]> {
+    const url =
+      'http://616d6bdb6dacbb001794ca17.mockapi.io/devnology/brazilian_provider';
+    const response: AxiosResponse<ProdutoBrasil[]> = await firstValueFrom(
+      this.httpService.get(url),
+    );
+    return response.data;
   }
 
-  findAll() {
-    return `This action returns all produtosBrasil`;
-  }
-
-  findOne(id: number) {
-    return `This action returns a #${id} produtosBrasil`;
-  }
-
-  update(id: number, updateProdutosBrasilDto: UpdateProdutosBrasilDto) {
-    return `This action updates a #${id} produtosBrasil`;
-  }
-
-  remove(id: number) {
-    return `This action removes a #${id} produtosBrasil`;
+  async findOne(id: string): Promise<ProdutoBrasil> {
+    const url = `http://616d6bdb6dacbb001794ca17.mockapi.io/devnology/brazilian_provider/${id}`;
+    const response: AxiosResponse<ProdutoBrasil> = await firstValueFrom(
+      this.httpService.get(url),
+    );
+    return response.data;
   }
 }
