@@ -14,25 +14,17 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model Usuario {
-  id_usuario  String    @id @default(uuid())
-  username    String    @unique
-  password    String    @unique
-  created_at  DateTime  @default(now())
-  updated_at  DateTime  @updatedAt
-
-  Pedido Pedido[]
-
-  @@map("usuarios")
-}
-
 model Pedido {
   id_pedido  String   @id @default(uuid())
-  id_usuario String
-  id_produto Int
+  id_produto Int[]
   created_at DateTime @default(now())
 
-  usuario Usuario @relation(fields: [id_usuario], references: [id_usuario])
-
   @@map("pedidos")
+}
+
+model Carrinho {
+  id_produto   Int @id
+  origem       String
+
+  @@map("carrinhos")
 }
