@@ -1,98 +1,95 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="120" alt="Nest Logo" /></a>
-</p>
+# Devnology E-commerce
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
+Este projeto é um e-commerce com funcionalidades completas de listagem de produtos, visualização individual, carrinho de compras e pedidos. Utiliza tecnologias modernas no frontend (React + MUI) e backend (NestJS).
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg" alt="Donate us"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow" alt="Follow us on Twitter"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+---
 
-## Description
+## 🚧 Disclaimer
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+Meu computador teve um problema no início da semana e só fui capaz de consertá-lo na quarta-feira à noite, logo, só tive dois dias para realizar o teste técnico (Quinta e Sexta). Por causa disso, não fui capaz de terminar as funcionalidades completas exigidas no teste, deixando alguns pontos apenas simulados, sendo eles:
 
-## Project setup
+- Barra de pesquisa de produtos e filtros na barra lateral, exceto o filtro de Região, que filtra corretamente entre os dados do Brasil e os dados da Europa, ou a fusão dos dois.
+- As páginas Carrinho de Compras e Meus Pedidos apenas renderizam um array de objetos estático na página.
 
-```bash
-$ npm install
-```
+Espero que ainda assim o código tenha qualidade o suficiente para avançar nesse processo seletivo :)
 
-## Compile and run the project
+De qualquer forma agradeço pela atenção e pela oportunidade!
 
-```bash
-# development
-$ npm run start
+## 🧰 Tecnologias utilizadas
 
-# watch mode
-$ npm run start:dev
+### Frontend:
 
-# production mode
-$ npm run start:prod
-```
+- React
+- React Router
+- Material UI (MUI)
+- TypeScript
 
-## Run tests
+### Backend:
+
+- NestJS
+- Prisma ORM
+- Axios
+- TypeScript
+
+---
+
+## ▶️ Como rodar o projeto
+
+**A tela de login é apenas estética, é só clicar em ENTRAR**
+
+### Pré-requisitos:
+
+- Node.js (v18 ou superior)
+- NPM ou Yarn
+
+### Rodando o Frontend:
 
 ```bash
-# unit tests
-$ npm run test
+# Acesse a pasta do frontend
+cd frontend
 
-# e2e tests
-$ npm run test:e2e
+# Instale as dependências
+npm install
 
-# test coverage
-$ npm run test:cov
+# Inicie o servidor de desenvolvimento
+npm run dev
 ```
 
-## Deployment
+O frontend estará disponível em: http://localhost:5173
 
-When you're ready to deploy your NestJS application to production, there are some key steps you can take to ensure it runs as efficiently as possible. Check out the [deployment documentation](https://docs.nestjs.com/deployment) for more information.
-
-If you are looking for a cloud-based platform to deploy your NestJS application, check out [Mau](https://mau.nestjs.com), our official platform for deploying NestJS applications on AWS. Mau makes deployment straightforward and fast, requiring just a few simple steps:
+### Rodando o Backend:
 
 ```bash
-$ npm install -g @nestjs/mau
-$ mau deploy
+# Acesse a pasta do backend
+cd backend
+
+# Instale as dependências
+npm install
+
+# Gere o cliente Prisma (mesmo sem banco real)
+npx prisma generate
+
+# Inicie o servidor
+npm run start:dev
 ```
 
-With Mau, you can deploy your application in just a few clicks, allowing you to focus on building features rather than managing infrastructure.
+O backend estará disponível em: http://localhost:3000
 
-## Resources
+---
 
-Check out a few resources that may come in handy when working with NestJS:
+## 🧠 Decisões Técnicas
 
-- Visit the [NestJS Documentation](https://docs.nestjs.com) to learn more about the framework.
-- For questions and support, please visit our [Discord channel](https://discord.gg/G7Qnnhy).
-- To dive deeper and get more hands-on experience, check out our official video [courses](https://courses.nestjs.com/).
-- Deploy your application to AWS with the help of [NestJS Mau](https://mau.nestjs.com) in just a few clicks.
-- Visualize your application graph and interact with the NestJS application in real-time using [NestJS Devtools](https://devtools.nestjs.com).
-- Need help with your project (part-time to full-time)? Check out our official [enterprise support](https://enterprise.nestjs.com).
-- To stay in the loop and get updates, follow us on [X](https://x.com/nestframework) and [LinkedIn](https://linkedin.com/company/nestjs).
-- Looking for a job, or have a job to offer? Check out our official [Jobs board](https://jobs.nestjs.com).
+### Frontend:
 
-## Support
+- Utilização do Material UI para uma interface moderna e responsiva.
+- React Router para navegação entre páginas.
+- Tela de carrinho consome dados do backend, que acessa APIs externas de acordo com a origem do produto.
+- Tipos de produtos foram unificados para facilitar o reuso de componentes entre Brasil e Europa.
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
+### Backend:
 
-## Stay in touch
+- Implementado com NestJS e organização por módulos (produtos do Brasil, Europa, carrinho).
+- Prisma utilizado apenas para persistência dos IDs dos produtos no carrinho.
+- **Não é necessário configurar banco local** para rodar a aplicação, já que a persistência é simulada.
 
-- Author - [Kamil Myśliwiec](https://twitter.com/kammysliwiec)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
-
-## License
-
-Nest is [MIT licensed](https://github.com/nestjs/nest/blob/master/LICENSE).
+---
